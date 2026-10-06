@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Primaria Fest 2026</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Inter & Oswald -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Oswald:wght@500;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Oswald', 'sans-serif'],
+                    },
+                    colors: {
+                        primaria: {
+                            kvdark: '#0a0000',       
+                            kvmaroon: '#3a0000',     
+                            kvred: '#6b0000',        
+                            neonred: '#ff1a1a',      
+                            yellow: '#facc15',       
+                            sultanpromax: '#ef4444',
+                            sultan: '#eab308',
+                            king: '#22c55e',
+                            warga: '#a855f7'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        html { scroll-behavior: smooth; }
+        body {
+            background-color: #0a0000;
+        }
+        
+        /* Desktop Hero Background Settings */
+        .hero-bg-desktop {
+            background-image: url('HEADER MICROSITE_PRIMARIA_JAKARTA_MASTER KV_FEEDS copy.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        /* Background Sections */
+        .section-bg-gradient {
+            background: linear-gradient(to bottom, #0a0000 0%, #2a0000 50%, #0a0000 100%);
+        }
+        .section-bg-dark {
+            background: linear-gradient(to bottom, #1a0000 0%, #0a0000 100%);
+        }
+
+        /* Typography Effects from KV */
+        .neon-text-yellow {
+            text-shadow: 0 0 10px rgba(250,204,21,0.6), 0 0 20px rgba(250,204,21,0.4);
+        }
+        .text-stroke-red {
+            color: transparent;
+            -webkit-text-stroke: 2px #ff1a1a;
+            text-shadow: 0 0 15px rgba(255,26,26,0.8), 0 0 30px rgba(255,26,26,0.4);
+        }
+        .text-stroke-red-sm {
+            color: transparent;
+            -webkit-text-stroke: 1px #ff1a1a;
+        }
+
+        /* Border Glow Effects */
+        .kv-border-glow {
+            border: 2px solid #ff1a1a;
+            box-shadow: 0 0 25px rgba(255,26,26,0.4), inset 0 0 10px rgba(255,26,26,0.2);
+        }
+
+        /* Custom scrollbar */
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 8px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: #1a0000; 
+            border-radius: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #ff1a1a; 
+            border-radius: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+            background: #cc0000; 
+        }
+    </style>
+</head>
+<body class="text-gray-100 font-sans antialiased">
+
+    <!-- Navbar -->
+    <nav class="w-full z-50 bg-[#0a0000] border-b border-primaria-neonred/30 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20 md:h-28">
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center h-full py-2">
+                    <img src="Artboard 6.png" alt="Primaria Fest Logo" class="h-12 md:h-24 object-contain drop-shadow-[0_0_12px_rgba(255,26,26,0.6)]">
+                </div>
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex space-x-8 items-center text-sm font-medium">
+                    <a href="#lineup" class="text-gray-200 hover:text-primaria-neonred transition">LINE UP</a>
+                    <a href="#jadwal" class="text-gray-200 hover:text-primaria-neonred transition">JADWAL</a>
+                    <a href="#tiket" class="text-gray-200 hover:text-primaria-neonred transition">TIKET</a>
+                    <a href="#snk" class="text-gray-200 hover:text-primaria-neonred transition">S&K</a>
+                    <a href="#tiket" class="bg-primaria-neonred text-white px-6 py-2.5 rounded font-bold hover:bg-red-700 shadow-[0_0_10px_rgba(255,26,26,0.6)] transition">BELI TIKET</a>
+                </div>
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-white hover:text-primaria-neonred focus:outline-none p-2 bg-black/40 rounded-lg">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile Menu Panel -->
+        <div id="mobile-menu" class="hidden md:hidden bg-[#0a0000]/95 backdrop-blur-md border-b border-primaria-neonred/30">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 text-center">
+                <a href="#lineup" class="block px-3 py-2 font-medium text-gray-200 hover:bg-red-900/30">Line Up</a>
+                <a href="#jadwal" class="block px-3 py-2 font-medium text-gray-200 hover:bg-red-900/30">Jadwal</a>
+                <a href="#tiket" class="block px-3 py-2 font-medium text-gray-200 hover:bg-red-900/30">Tiket</a>
+                <a href="#snk" class="block px-3 py-2 font-medium text-gray-200 hover:bg-red-900/30">Syarat & Ketentuan</a>
+                <a href="#tiket" class="block mx-3 mt-4 bg-primaria-neonred text-white px-6 py-2 rounded font-bold shadow-[0_0_10px_rgba(255,26,26,0.6)]">Beli Tiket</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="beranda" class="relative border-b border-primaria-neonred/20 bg-black">
+        <!-- Mobile View -->
+        <div class="block md:hidden w-full relative">
+            <img src="HEADER MICROSITE_PRIMARIA_JAKARTA_MASTER KV_FEEDS copy.jpg" alt="Primaria Fest Hero" class="w-full h-auto object-contain block">
+            <div class="py-5 px-4 text-center bg-[#0a0000]">
+                <a href="#tiket" class="block w-full bg-primaria-neonred text-white py-3.5 rounded-full font-bold text-base hover:bg-red-600 transition shadow-[0_0_20px_rgba(255,26,26,0.9)] uppercase tracking-wider border border-white/20">
+                    Amankan Tiket Sekarang
+                </a>
+            </div>
+        </div>
+
+        <!-- Desktop View -->
+        <div class="hidden md:flex hero-bg-desktop min-h-screen relative flex-col justify-end items-center pb-12">
+            <div class="z-20 w-10/12 max-w-sm text-center">
+                <a href="#tiket" class="block bg-primaria-neonred text-white py-4 rounded-full font-bold text-lg hover:bg-red-600 transition shadow-[0_0_25px_rgba(255,26,26,0.9)] uppercase tracking-wider border border-white/20">
+                    Amankan Tiket Sekarang
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Line Up Section -->
+    <section id="lineup" class="py-20 px-4 section-bg-gradient border-b border-primaria-neonred/20">
+        <div class="max-w-6xl mx-auto">
+            
+            <!-- International Line Up -->
+            <div class="mb-24">
+                <h2 class="text-3xl md:text-5xl font-display font-bold text-center text-white mb-12 uppercase tracking-wider drop-shadow-lg">
+                    Jauh-jauh Datang dari Luar Negeri
+                </h2>
+                <div class="flex flex-wrap justify-center gap-8 md:gap-16">
+                    <div class="text-center group">
+                        <div class="w-64 h-64 md:w-80 md:h-80 rounded-[2rem] overflow-hidden kv-border-glow group-hover:scale-105 transition duration-300 bg-black/80 relative">
+                            <img src="JESSIE.png" alt="Jessi" class="w-full h-full object-cover">
+                        </div>
+                        <h3 class="mt-6 text-3xl font-display font-bold text-white uppercase tracking-wider">Jessi</h3>
+                    </div>
+                    <div class="text-center group">
+                        <div class="w-64 h-64 md:w-80 md:h-80 rounded-[2rem] overflow-hidden kv-border-glow group-hover:scale-105 transition duration-300 bg-black/80 relative">
+                            <img src="jarvis.png" alt="JV Jarvis" class="w-full h-full object-cover">
+                        </div>
+                        <h3 class="mt-6 text-3xl font-display font-bold text-white uppercase tracking-wider">JV.Jarvis</h3>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Special Collaboration -->
+            <div class="mb-24">
+                <div class="kv-border-glow bg-yellow-300/80 border-0 text-black text-center py-3 mb-10 max-w-2xl mx-auto rounded-full">
+                    <h2 class="text-2xl md:text-3xl font-display font-bold uppercase tracking-wide">Kolaborasi Asoy</h2>
+                </div>
+                <div class="flex flex-col md:flex-row justify-center items-center gap-8 md:gap-16 kv-border-glow border-0 p-8 md:p-12 rounded-[2.5rem] bg-red-700/60 backdrop-blur-sm max-w-4xl mx-auto">
+                    <div class="text-center">
+                        <div class="w-64 h-64 md:w-80 md:h-80 rounded-[2rem] overflow-hidden bg-black border-2 border-yellow-300 mx-auto">
+                            <img src="JESSIE.png" alt="Jessi" class="w-full h-full object-cover">
+                        </div>
+                        <h3 class="mt-5 text-2xl font-display font-bold text-white tracking-wide">JESSI</h3>
+                    </div>
+                    <!-- "X" separator -->
+                    <div class="text-6xl md:text-5xl font-display text-primaria-neonred font-bold text-yellow-300 text-stroke-red">X</div>
+                    <div class="text-center">
+                        <div class="w-64 h-64 md:w-80 md:h-80 rounded-[2rem] overflow-hidden bg-black border-2 border-yellow-300 mx-auto">
+                            <img src="BRAVY.png" alt="DJ Bravy" class="w-full h-full object-cover">
+                        </div>
+                        <h3 class="mt-5 text-2xl font-display font-bold text-white tracking-wide">DJ BRAVY</h3>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Local Performances -->
+            <div>
+                <div class="kv-border-glow border-0 bg-blue-500/60 rounded-full text-white text-center py-3 mb-10 max-w-2xl mx-auto">
+                    <h2 class="text-2xl md:text-3xl font-display font-bold uppercase tracking-wide">Penampilan Aduhai</h2>
+                </div>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-6 border-0 kv-border-glow p-8 rounded-[2.5rem] bg-yellow-300/80 backdrop-blur-sm">
+                    <div class="text-center">
+                        <div class="w-full aspect-square rounded-2xl overflow-hidden bg-black border border-red-900 mb-4 relative">
+                            <img src="guyon waton.png" alt="Guyon Waton" class="w-full h-full object-cover">
+                        </div>
+                        <h3 class="text-sm md:text-lg font-display font-bold text-black uppercase">Guyon Waton</h3>
+                    </div>
+                    <div class="text-center">
+                        <div class="w-full aspect-square rounded-2xl overflow-hidden bg-black border border-red-900 mb-4 relative">
+                            <img src="moluccan.png" alt="Moluccan Soul" class="w-full h-full object-cover">
+                        </div>
+                        <h3 class="text-sm md:text-lg font-display font-bold text-black uppercase">Moluccan Soul</h3>
+                    </div>
+                    <div class="text-center">
+                        <div class="w-full aspect-square rounded-2xl overflow-hidden bg-black border border-red-900 mb-4 relative">
+                            <img src="BRAVY.png" alt="DJ Bravy" class="w-full h-full object-cover">
+                        </div>
+                        <h3 class="text-sm md:text-lg font-display font-bold text-black uppercase">DJ Bravy</h3>
+                    </div>
+                    <div class="text-center">
+                        <div class="w-full aspect-square rounded-2xl overflow-hidden bg-black border border-red-900 mb-4 relative">
+                            <img src="AYU TING TING.png" alt="Ayu Ting Ting" class="w-full h-full object-cover">
+                        </div>
+                        <h3 class="text-sm md:text-lg font-display font-bold text-black uppercase">Ayu Ting Ting</h3>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Schedule / Jadwal -->
+    <section id="jadwal" class="py-20 px-4 section-bg-dark border-b border-primaria-neonred/20">
+        <div class="max-w-4xl mx-auto">
+            <h2 class="text-4xl md:text-5xl font-display font-bold text-center text-white mb-12 uppercase drop-shadow-md">Jam Naik Panggung</h2>
+            
+            <div class="overflow-x-auto rounded-xl kv-border-glow bg-black/80 shadow-2xl backdrop-blur-sm">
+                <table class="w-full text-left border-collapse text-gray-200">
+                    <thead>
+                        <tr class="bg-red-950 text-primaria-yellow border-b-2 border-primaria-neonred">
+                            <th class="p-5 font-bold text-sm md:text-base w-1/4 tracking-wider uppercase">Waktu (WIB)</th>
+                            <th class="p-5 font-bold text-sm md:text-base w-1/4 tracking-wider uppercase">Durasi</th>
+                            <th class="p-5 font-bold text-sm md:text-base w-1/2 tracking-wider uppercase">Agenda / Aktivitas</th>
+                        </tr>
+                    </thead>
+                    <tbody class="text-sm md:text-base divide-y divide-red-900/50">
+                        <tr class="hover:bg-red-900/30 transition">
+                            <td class="p-5 font-medium text-gray-300">10:00 - 15.00</td>
+                            <td class="p-5 text-gray-400">3 Hour</td>
+                            <td class="p-5 font-semibold text-white">Ticket Redeem</td>
+                        </tr>
+                        <tr class="hover:bg-red-900/30 transition bg-[#0a0000]">
+                            <td class="p-5 font-medium text-gray-300">15.00</td>
+                            <td class="p-5 text-gray-400"></td>
+                            <td class="p-5 font-semibold text-white">Open gate</td>
+                        </tr>
+                        <tr class="hover:bg-red-900/30 transition">
+                            <td class="p-5 font-medium text-gray-300">16.45-17.45</td>
+                            <td class="p-5 text-gray-400">1 Hour</td>
+                            <td class="p-5 font-bold text-primaria-yellow">Moluccan Soul</td>
+                        </tr>
+                        <tr class="hover:bg-red-900/30 transition bg-[#0a0000]">
+                            <td class="p-5 font-medium text-gray-500">17.45-18.15</td>
+                            <td class="p-5 text-gray-500">30 mins</td>
+                            <td class="p-5 font-semibold text-gray-500">BREAK</td>
+                        </tr>
+                        <tr class="hover:bg-red-900/30 transition">
+                            <td class="p-5 font-medium text-gray-300">18.15-19.15</td>
+                            <td class="p-5 text-gray-400">1 Hour</td>
+                            <td class="p-5 font-bold text-primaria-yellow">Ayu Ting-Ting</td>
+                        </tr>
+                        <tr class="hover:bg-red-900/30 transition bg-[#0a0000]">
+                            <td class="p-5 font-medium text-gray-300">19.30-20.30</td>
+                            <td class="p-5 text-gray-400">1 Hour</td>
+                            <td class="p-5 font-bold text-primaria-yellow">Guyon Waton</td>
+                        </tr>
+                        <tr class="hover:bg-red-900/30 transition">
+                            <td class="p-5 font-medium text-gray-300">20.45-21.45</td>
+                            <td class="p-5 text-gray-400">60 mins</td>
+                            <td class="p-5 font-bold text-primaria-yellow">JARVIS</td>
+                        </tr>
+                        <tr class="hover:bg-red-900/30 transition bg-[#0a0000]">
+                            <td class="p-5 font-medium text-gray-300">22.00-22.30</td>
+                            <td class="p-5 text-gray-400">30 mins</td>
+                            <td class="p-5 font-display text-xl font-bold text-primaria-neonred tracking-wide drop-shadow-[0_0_8px_rgba(255,26,26,0.8)]">JESSI</td>
+                        </tr>
+                        <tr class="hover:bg-red-900/30 transition">
+                            <td class="p-5 font-medium text-gray-300">22.30-22.40</td>
+                            <td class="p-5 text-gray-400">10 mins</td>
+                            <td class="p-5 font-display text-lg font-bold text-white tracking-wide">JESSI <span class="text-primaria-neonred">X</span> BRAVY</td>
+                        </tr>
+                        <tr class="hover:bg-red-900/30 transition bg-[#0a0000]">
+                            <td class="p-5 font-medium text-gray-300">22.40-23.30</td>
+                            <td class="p-5 text-gray-400">50 mins</td>
+                            <td class="p-5 font-bold text-primaria-yellow">BRAVY</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- Ticket Section -->
+    <section id="tiket" class="py-20 px-4 section-bg-gradient border-b border-primaria-neonred/20">
+        <div class="max-w-5xl mx-auto">
+            
+            <div class="kv-border-glow bg-black/80 py-5 rounded-2xl shadow-[0_0_20px_rgba(255,26,26,0.2)] mb-14 text-center">
+                <h2 class="text-3xl md:text-5xl font-display font-bold uppercase tracking-widest text-white">Harga Tiket</h2>
+            </div>
+
+            <!-- Early Bird Tickets -->
+            <div class="mb-20">
+                <div class="flex justify-center mb-10">
+                    <h3 class="text-2xl font-display font-bold tracking-wider bg-red-900 border border-primaria-neonred text-white px-8 py-2 rounded-full shadow-[0_0_15px_rgba(255,26,26,0.5)]">BELI DULUAN LEBIH MURAH</h3>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="flex rounded-xl overflow-hidden kv-border-glow hover:scale-[1.03] transition-transform duration-300 shadow-xl bg-black">
+                        <div class="w-1/2 bg-red-600 text-white flex items-center justify-center p-5 relative overflow-hidden">
+                            <div class="absolute inset-0 bg-gradient-to-r from-black/20 to-transparent"></div>
+                            <span class="font-display font-bold text-2xl text-center leading-tight relative z-10">SULTAN PRO MAX</span>
+                        </div>
+                        <div class="w-1/2 bg-red-500 text-white flex flex-col items-center justify-center p-5 border-l border-red-400">
+                            <span class="font-bold text-xl md:text-2xl tracking-wide">375.000,-</span>
+                            <span class="text-xs opacity-80 mt-1">Excl. Taxes, Platform & Service Fee</span>
+                        </div>
+                    </div>
+                    <div class="flex rounded-xl overflow-hidden kv-border-glow hover:scale-[1.03] transition-transform duration-300 shadow-xl bg-black">
+                        <div class="w-1/2 bg-orange-400 text-white flex items-center justify-center p-5 relative overflow-hidden">
+                            <div class="absolute inset-0 bg-gradient-to-r from-black/20 to-transparent"></div>
+                            <span class="font-display font-bold text-2xl text-center relative z-10">SULTAN</span>
+                        </div>
+                        <div class="w-1/2 bg-orange-400/90 text-white flex flex-col items-center justify-center p-5 border-l border-orange-300">
+                            <span class="font-bold text-xl md:text-2xl tracking-wide">250.000,-</span>
+                            <span class="text-xs opacity-80 mt-1">Excl. Taxes, Platform & Service Fee</span>
+                        </div>
+                    </div>
+                    <div class="flex rounded-xl overflow-hidden kv-border-glow hover:scale-[1.03] transition-transform duration-300 shadow-xl bg-black">
+                        <div class="w-1/2 bg-[#90b050] text-white flex items-center justify-center p-5 relative overflow-hidden">
+                            <div class="absolute inset-0 bg-gradient-to-r from-black/20 to-transparent"></div>
+                            <span class="font-display font-bold text-2xl text-center relative z-10">KING</span>
+                        </div>
+                        <div class="w-1/2 bg-[#80a040] text-white flex flex-col items-center justify-center p-5 border-l border-[#90b050]">
+                            <span class="font-bold text-xl md:text-2xl tracking-wide">125.000,-</span>
+                            <span class="text-xs opacity-80 mt-1">Excl. Taxes, Platform & Service Fee</span>
+                        </div>
+                    </div>
+                    <div class="flex rounded-xl overflow-hidden kv-border-glow hover:scale-[1.03] transition-transform duration-300 shadow-xl bg-black">
+                        <div class="w-1/2 bg-fuchsia-500 text-white flex items-center justify-center p-5 relative overflow-hidden">
+                            <div class="absolute inset-0 bg-gradient-to-r from-black/20 to-transparent"></div>
+                            <span class="font-display font-bold text-2xl text-center relative z-10">WARGA</span>
+                        </div>
+                        <div class="w-1/2 bg-fuchsia-600 text-white flex flex-col items-center justify-center p-5 border-l border-fuchsia-400">
+                            <span class="font-bold text-xl md:text-2xl tracking-wide">75.000,-</span>
+                            <span class="text-xs opacity-80 mt-1">Excl. Taxes, Platform & Service Fee</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex justify-center mb-16">
+                <div class="w-3/4 h-[1px] bg-gradient-to-r from-transparent via-primaria-neonred to-transparent opacity-50"></div>
+            </div>
+
+            <!-- Normal Tickets -->
+            <div>
+                <div class="flex justify-center mb-10">
+                    <h3 class="text-2xl font-display font-bold tracking-wider bg-red-900 border border-primaria-neonred text-white px-8 py-2 rounded-full shadow-[0_0_15px_rgba(255,26,26,0.5)]">BELI BELAKANGAN HARGA NORMAL</h3>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="flex rounded-xl overflow-hidden kv-border-glow hover:scale-[1.03] transition-transform duration-300 shadow-xl bg-black">
+                        <div class="w-1/2 bg-red-600 text-white flex items-center justify-center p-5 relative overflow-hidden">
+                            <div class="absolute inset-0 bg-gradient-to-r from-black/20 to-transparent"></div>
+                            <span class="font-display font-bold text-2xl text-center leading-tight relative z-10">SULTAN PRO MAX</span>
+                        </div>
+                        <div class="w-1/2 bg-red-600 text-white flex flex-col items-center justify-center p-5 border-l border-red-500">
+                            <span class="font-bold text-xl md:text-2xl tracking-wide">750.000,-</span>
+                            <span class="text-xs opacity-80 mt-1">Excl. Taxes, Platform & Service Fee</span>
+                        </div>
+                    </div>
+                    <div class="flex rounded-xl overflow-hidden kv-border-glow hover:scale-[1.03] transition-transform duration-300 shadow-xl bg-black">
+                        <div class="w-1/2 bg-yellow-400 text-black flex items-center justify-center p-5 relative overflow-hidden">
+                            <div class="absolute inset-0 bg-gradient-to-r from-black/10 to-transparent"></div>
+                            <span class="font-display font-bold text-2xl text-center relative z-10">SULTAN</span>
+                        </div>
+                        <div class="w-1/2 bg-yellow-400 text-black flex flex-col items-center justify-center p-5 border-l border-yellow-300">
+                            <span class="font-bold text-xl md:text-2xl tracking-wide">500.000,-</span>
+                            <span class="text-xs opacity-80 mt-1">Excl. Taxes, Platform & Service Fee</span>
+                        </div>
+                    </div>
+                    <div class="flex rounded-xl overflow-hidden kv-border-glow hover:scale-[1.03] transition-transform duration-300 shadow-xl bg-black">
+                        <div class="w-1/2 bg-green-600 text-white flex items-center justify-center p-5 relative overflow-hidden">
+                            <div class="absolute inset-0 bg-gradient-to-r from-black/20 to-transparent"></div>
+                            <span class="font-display font-bold text-2xl text-center relative z-10">KING</span>
+                        </div>
+                        <div class="w-1/2 bg-green-600 text-white flex flex-col items-center justify-center p-5 border-l border-green-500">
+                            <span class="font-bold text-xl md:text-2xl tracking-wide">250.000,-</span>
+                            <span class="text-xs opacity-80 mt-1">Excl. Taxes, Platform & Service Fee</span>
+                        </div>
+                    </div>
+                    <div class="flex rounded-xl overflow-hidden kv-border-glow hover:scale-[1.03] transition-transform duration-300 shadow-xl bg-black">
+                        <div class="w-1/2 bg-[#b484ff] text-black flex items-center justify-center p-5 relative overflow-hidden">
+                            <div class="absolute inset-0 bg-gradient-to-r from-black/10 to-transparent"></div>
+                            <span class="font-display font-bold text-2xl text-center relative z-10">WARGA</span>
+                        </div>
+                        <div class="w-1/2 bg-[#b484ff] text-black flex flex-col items-center justify-center p-5 border-l border-[#a06df5]">
+                            <span class="font-bold text-xl md:text-2xl tracking-wide">150.000,-</span>
+                            <span class="text-xs opacity-80 mt-1">Excl. Taxes, Platform & Service Fee</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center mt-16">
+                <button class="bg-primaria-neonred text-white px-14 py-5 rounded-full font-display font-bold text-2xl hover:bg-red-600 transition shadow-[0_0_20px_rgba(255,26,26,0.6)] w-full md:w-auto tracking-widest uppercase">
+                    Beli Tiket Sekarang
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Terms and Conditions Section -->
+    <section id="snk" class="py-20 px-4 section-bg-dark text-gray-300 border-b border-primaria-neonred/20">
+        <div class="max-w-4xl mx-auto">
+            <h2 class="text-3xl md:text-5xl font-display font-bold text-center text-white mb-10 uppercase tracking-widest drop-shadow-md">Syarat & Ketentuan</h2>
+            
+            <div class="bg-black/60 rounded-3xl p-6 md:p-10 shadow-2xl kv-border-glow h-[500px] overflow-y-auto custom-scrollbar backdrop-blur-sm">
+                <p class="mb-8 leading-relaxed text-gray-300">
+                    Dengan membeli tiket, Anda telah mengerti, menyetujui, dan bersedia mematuhi seluruh syarat dan ketentuan selama <strong>Primaria Fest 2026</strong> berlangsung yang telah ditentukan oleh pihak penyelenggara. Untuk pengalaman terbaik, harap perhatikan hal-hal berikut:
+                </p>
+
+                <h3 class="text-2xl font-display font-bold text-primaria-neonred mb-4 tracking-wide">01. Aturan Keamanan & Akses Masuk</h3>
+                <ul class="list-disc pl-5 mb-8 space-y-3 text-gray-300">
+                    <li>Pengunjung hanya diperbolehkan masuk dengan <em>wristband</em> yang terpasang dengan benar di pergelangan tangan.</li>
+                    <li><em>Barcode</em> pada tiket/<em>wristband</em> akan dipindai oleh petugas keamanan saat memasuki venue.</li>
+                    <li><strong>No Re-entry:</strong> Penonton hanya diperbolehkan satu kali masuk melalui pintu yang disediakan. Dilarang masuk kembali ke venue di hari yang sama apabila Anda sudah keluar dari area festival.</li>
+                    <li>Pihak penyelenggara berhak menolak masuk atau mengeluarkan siapa pun yang tidak mematuhi pemeriksaan keamanan, memalsukan tiket, atau bertindak tidak tertib di dalam area festival tanpa hak pengembalian uang (<em>refund</em>).</li>
+                </ul>
+
+                <h3 class="text-2xl font-display font-bold text-primaria-neonred mb-4 tracking-wide">02. Barang yang Dilarang Masuk</h3>
+                <ul class="list-disc pl-5 mb-8 space-y-3 text-gray-300">
+                    <li>Makanan dan minuman dari luar.</li>
+                    <li>Senjata tajam, senjata api, dan benda berbahaya lainnya.</li>
+                    <li>Tongsis/<em>selfie stick</em>, tripod, monopod, dan lensa kamera tele.</li>
+                    <li>Drone atau peralatan sejenisnya.</li>
+                    <li>Obat-obatan terlarang, narkotika, atau zat adiktif.</li>
+                    <li>Benda yang mudah terbakar, <em>flare</em>, dan <em>laser pointer</em>.</li>
+                    <li>Terompet, toa/<em>megaphone</em>, dan atribut partai politik.</li>
+                    <li>Sepeda, <em>skateboard</em>, otoped, kursi lipat, dan tumbler kaca.</li>
+                    <li>Hewan peliharaan.</li>
+                </ul>
+
+                <h3 class="text-2xl font-display font-bold text-primaria-neonred mb-4 tracking-wide">03. Barang yang Diperbolehkan</h3>
+                <ul class="list-disc pl-5 mb-8 space-y-3 text-gray-300">
+                    <li>Botol air minum kosong (tidak bermaterial kaca/beling) yang dapat diisi ulang di dalam venue.</li>
+                    <li>Jas hujan, <em>sunscreen</em>, parfum, dan kosmetik.</li>
+                    <li>Rokok atau heatstick (tersegel). Maksimal membawa 1 (satu) <em>device</em> rokok elektrik/vape per orang (tanpa membawa liquid tambahan/cadangan).</li>
+                </ul>
+
+                <h3 class="text-2xl font-display font-bold text-primaria-neonred mb-4 tracking-wide">04. Ketentuan Audio, Fotografi & Videografi</h3>
+                <ul class="list-disc pl-5 mb-8 space-y-3 text-gray-300">
+                    <li>Kamera profesional (Mirrorless/DSLR) diperbolehkan selama <strong>tidak</strong> menggunakan lensa tele panjang.</li>
+                    <li>Dilarang keras melakukan <em>live streaming</em> penampilan artis dari awal hingga akhir.</li>
+                    <li>Dilarang menggunakan <em>flash</em> kamera/ponsel pada momen-momen tertentu yang ditentukan penyelenggara.</li>
+                    <li>Penyelenggara berhak menuntut pengunjung yang mendokumentasikan penampil dan memonetisasi video/foto tersebut tanpa izin resmi.</li>
+                </ul>
+
+                <h3 class="text-2xl font-display font-bold text-primaria-neonred mb-4 tracking-wide">05. Ketentuan Lain-lain</h3>
+                <ul class="list-disc pl-5 space-y-3 text-gray-300">
+                    <li>Dilarang melempar barang ke arah panggung, terutama benda padat yang dapat melukai penampil atau penonton lain.</li>
+                    <li>Dilarang berjualan dalam bentuk apapun di dalam area pertunjukan tanpa persetujuan dari promotor.</li>
+                    <li>Pertunjukan ini dapat menampilkan efek lampu <em>flash</em> (strobe) yang intens dan volume suara keras. Pemilik tiket dengan kondisi medis tertentu diharapkan menjaga diri mereka sendiri dan mengambil langkah pengamanan yang diperlukan.</li>
+                    <li>Seluruh barang bawaan yang dilarang akan disita di pintu masuk dan penyelenggara tidak bertanggung jawab atas kehilangan atau kerusakan barang sitaan tersebut.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-[#0a0000] text-white pt-16 pb-8">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <!-- Logo Primaria Sesuai Navbar -->
+            <div class="flex justify-center items-center mb-4">
+                <img src="Artboard 6.png" alt="Primaria Fest Logo" class="h-16 md:h-20 object-contain drop-shadow-[0_0_10px_rgba(255,26,26,0.5)]">
+            </div>
+            <p class="text-gray-400 mb-8 font-medium tracking-wide">05 Desember 2026 • Ex. Hanggar Teras Pancoran, Jakarta</p>
+            <div class="flex justify-center space-x-6 mb-8">
+                <a href="https://www.instagram.com/primaria_id/?hl=en" target="_blank" class="w-12 h-12 rounded-full border border-primaria-neonred/50 flex items-center justify-center text-gray-300 hover:text-white hover:bg-primaria-neonred/20 transition shadow-[0_0_10px_rgba(255,26,26,0.3)] text-xl">
+                    <i class="fab fa-instagram"></i>
+                </a>
+
+                <a href="https://www.instagram.com/primaria_id/?hl=en" target="_blank" class="w-12 h-12 rounded-full border border-primaria-neonred/50 flex items-center justify-center text-gray-300 hover:text-white hover:bg-primaria-neonred/20 transition shadow-[0_0_10px_rgba(255,26,26,0.3)] text-xl">
+                    <i class="fab fa-tiktok"></i>
+                </a>
+            </div>
+            <div class="border-t border-red-900/50 pt-8 text-gray-500 text-sm flex flex-col md:flex-row justify-between items-center">
+                <p>&copy; 2026 Primaria Fest. All Rights Reserved.</p>
+                <div class="space-x-6 mt-4 md:mt-0">
+                    <a href="#snk" class="hover:text-primaria-neonred transition">Syarat & Ketentuan</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Script for Mobile Menu Toggle -->
+    <script>
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+        });
+
+        const menuLinks = menu.querySelectorAll('a');
+        menuLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                menu.classList.add('hidden');
+            });
+        });
+    </script>
+</body>
+</html>
