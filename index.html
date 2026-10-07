@@ -111,7 +111,7 @@
                     <a href="#jadwal" class="text-gray-200 hover:text-primaria-neonred transition">Jadwal</a>
                     <a href="#tiket" class="text-gray-200 hover:text-primaria-neonred transition">Tiket</a>
                     <a href="#snk" class="text-gray-200 hover:text-primaria-neonred transition">Syarat & Ketentuan</a>
-                    <a href="#tiket" class="bg-primaria-neonred text-white px-6 py-2.5 rounded font-bold hover:bg-red-700 shadow-[0_0_10px_rgba(255,26,26,0.6)] transition">BELI TIKET</a>
+                    <a href="#tiket" class="bg-primaria-neonred text-white px-6 py-2.5 rounded font-bold hover:bg-red-700 shadow-[0_0_10px_rgba(255,26,26,0.6)] transition">Beli Tiket</a>
                 </div>
                 <!-- Mobile Menu Button -->
                 <div class="md:hidden flex items-center">
@@ -307,6 +307,25 @@
                 <h2 class="text-3xl md:text-5xl font-display font-bold uppercase tracking-widest text-white">Mari dibeli tiketnya</h2>
             </div>
 
+            <!-- Ffestival Layout Collapse Component -->
+            <div class="mb-12 kv-border-glow rounded-2xl overflow-hidden bg-black/90 backdrop-blur-sm">
+                <!-- Collapse Header (Clickable) -->
+                <button id="layout-toggle-btn" class="w-full flex justify-between items-center p-5 md:p-6 text-left bg-red-950/40 hover:bg-red-900/40 transition focus:outline-none">
+                    <span class="font-display font-bold text-xl md:text-2xl text-primaria-yellow tracking-wider flex items-center gap-3">
+                        <i class="fa-solid fa-users-line"></i> LIHAT POSISI KATEGORI TIKET DI SINI!
+                    </span>
+                    <i id="layout-icon" class="fas fa-chevron-down text-primaria-yellow text-xl transition-transform duration-300"></i>
+                </button>
+                <!-- Collapse Content (Hidden by default) -->
+                <div id="layout-content" class="hidden p-4 md:p-6 border-t border-red-900/50 bg-[#0a0000] text-center">
+                    <div class="max-w-3xl mx-auto rounded-xl overflow-hidden border border-red-800 shadow-[0_0_15px_rgba(255,26,26,0.3)] bg-black">
+                        <!-- Ganti src dengan file gambar festival layout Anda nantinya -->
+                        <img src="festival-layout.jpg" alt="Festival Layout Primaria Fest" class="w-full h-auto object-contain">
+                    </div>
+                    <p class="text-sm text-gray-400 mt-3 italic">*Denah lokasi dan posisi kategori penonton dapat berubah sewaktu-waktu.</p>
+                </div>
+            </div>
+
             <!-- Early Bird Tickets -->
             <div class="mb-20">
                 <div class="flex justify-center mb-10">
@@ -474,6 +493,19 @@
         </div>
     </section>
 
+    <!-- Tentang Primaria Section -->
+    <section id="tentang" class="py-20 px-4 section-bg-gradient border-b border-primaria-neonred/20">
+        <div class="max-w-4xl mx-auto text-center">
+            <h2 class="text-3xl md:text-5xl font-display font-bold text-white mb-8 uppercase tracking-widest drop-shadow-md">Tentang Primaria</h2>
+            <div class="bg-black/60 rounded-3xl p-6 md:p-10 shadow-2xl kv-border-glow backdrop-blur-sm">
+                <p class="text-gray-300 text-base md:text-lg leading-relaxed">
+                    PRIMARIA FEST 2026 adalah festival musik yang menghadirkan pilihan genre favorit mulai dari Indonesian Bounce Music (IBM), koplo, hipdut, hingga breakbeat untuk menemani kamu bebas lepas biar stay waras!
+                    PRIMARIA FEST siap menggoyang kotamu!
+                </p>
+            </div>
+        </div>
+    </section>
+
     <!-- Footer -->
     <footer class="bg-[#0a0000] text-white pt-16 pb-8">
         <div class="max-w-7xl mx-auto px-4 text-center">
@@ -491,6 +523,7 @@
                 <p>&copy; 2026 Primaria Fest. All Rights Reserved.</p>
                 <div class="space-x-6 mt-4 md:mt-0">
                     <a href="#snk" class="hover:text-primaria-neonred transition">Syarat & Ketentuan</a>
+                    <a href="https://www.pmiprivacy.com/global/en/corporate-website/#accordion-7c07d1c2f6-item-a2c825cea9" target="_blank" class="hover:text-primaria-neonred transition">Privacy Policy</a>
                 </div>
             </div>
         </div>
@@ -510,6 +543,16 @@
             link.addEventListener('click', () => {
                 menu.classList.add('hidden');
             });
+        });
+
+        // Festival Layout Collapse Toggle
+        const layoutToggleBtn = document.getElementById('layout-toggle-btn');
+        const layoutContent = document.getElementById('layout-content');
+        const layoutIcon = document.getElementById('layout-icon');
+
+        layoutToggleBtn.addEventListener('click', () => {
+            layoutContent.classList.toggle('hidden');
+            layoutIcon.classList.toggle('rotate-180');
         });
     </script>
 </body>
